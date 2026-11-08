@@ -1,0 +1,6 @@
+-r requirements.txt
+
+# Test stack (no TensorFlow download needed to run this suite: the model is
+# stubbed at the registry boundary — see tests/conftest.py).
+pytest==9.2.0
+httpx==0.28.1

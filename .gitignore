@@ -1,0 +1,52 @@
+node_modules/
+.next/
+out/
+build/
+dist/
+
+# --- Secrets / environment ---------------------------------------------------
+# Ignore every environment file (plain .env and all variants), then explicitly
+# re-include the valueless template so it remains a trackable example.
+.env*
+!.env.example
+
+# --- Logs / tooling artifacts ------------------------------------------------
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.turbo/
+coverage/
+
+# --- Generated build artifacts (local-only; some contain env snapshots) -------
+supabase/.temp/
+*.sqlite
+.open-next/
+.wrangler/
+.opencode/
+tsconfig.tsbuildinfo
+supabase/.branches/
+
+# --- Wrangler local secrets ---------------------------------------------------
+.dev.vars*
+
+# --- Styles -------------------------------------------------------------------
+# Previously ignored all CSS, which would have excluded the app stylesheet.
+# Keep the broad rule but re-include the application's global stylesheet.
+*.css
+!app/globals.css
+
+# --- Machine learning model artifacts (local-only) ---
+model-service/checkpoints/
+*.keras
+
+# --- Local backups and test images ---
+opencode.json.backup
+model-service/healthy_probe.png
+model-service/coffee_leaf_test.jpg
+
+# Local OpenCode configuration
+opencode.json
+
+# Supabase migration backup
+supabase/migrations/002_rls_policies.sql.bak

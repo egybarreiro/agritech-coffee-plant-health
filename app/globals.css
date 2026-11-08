@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  background: #f5f7f1;
+  color: #1e3025;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/*
+ * Gentle botanical motion for the crop illustrations (landing + dashboard
+ * home). Inline-vector "living illustrations" instead of JPEG/PNG GIF files:
+ * natural sway/drift motion at zero download cost, no external assets, and
+ * fully disabled for users who prefer reduced motion.
+ */
+@keyframes agri-sway {
+  from { transform: rotate(-2.4deg); }
+  to { transform: rotate(2.4deg); }
+}
+@keyframes agri-drift {
+  from { transform: translateY(0) rotate(-0.6deg); }
+  to { transform: translateY(-4.5px) rotate(0.8deg); }
+}
+@keyframes agri-breathe {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(0, -2.5px) scale(1.02); }
+}
+@keyframes agri-shimmer {
+  from { opacity: 0.62; }
+  to { opacity: 1; }
+}
+.agri-anim-sway,
+.agri-anim-drift,
+.agri-anim-breathe,
+.agri-anim-shimmer {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  will-change: transform;
+}
+.agri-anim-sway { animation: agri-sway 7s ease-in-out infinite alternate; }
+.agri-anim-drift { animation: agri-drift 5.5s ease-in-out infinite alternate; }
+.agri-anim-breathe { animation: agri-breathe 6.5s ease-in-out infinite alternate; }
+.agri-anim-shimmer { animation: agri-shimmer 4.5s ease-in-out infinite alternate; }
+.agri-anim-delay-1 { animation-delay: -2.2s; }
+.agri-anim-delay-2 { animation-delay: -4.4s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .agri-anim-sway,
+  .agri-anim-drift,
+  .agri-anim-breathe,
+  .agri-anim-shimmer {
+    animation: none;
+  }
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; }
+a { color: inherit; }
+button, input { font: inherit; }

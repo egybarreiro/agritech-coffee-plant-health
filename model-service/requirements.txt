@@ -1,0 +1,20 @@
+# Runtime dependencies for the coffee inference service.
+#
+# IMPORTANT — verified availability (2026-11-07, PyPI):
+# - tensorflow==2.21.0 EXISTS and is the latest stable release (2.22.0 is
+#   release-candidate only). Its wheels cover ONLY CPython 3.10–3.13
+#   (linux x86_64/aarch64, macOS arm64, Windows amd64). There is NO Python
+#   3.14 wheel — deploy on Python 3.10–3.13.
+# - Verify Keras serialization compatibility at deployment time:
+#     python -c "import tensorflow as tf, keras; print(tf.__version__, keras.__version__)"
+#   TF 2.21.0 ships a Keras 3.x; `.keras` checkpoints saved by that same
+#   line load natively via tf.keras.models.load_model — no conversion step.
+#
+# The framework pins below were resolved and frozen by an actual install
+# (`pip freeze`) of this service's environment — not typed from memory.
+
+tensorflow==2.21.0
+fastapi==0.162.2
+uvicorn[standard]==0.54.0
+python-multipart==0.0.33
+pillow==13.0.0

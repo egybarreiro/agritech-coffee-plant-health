@@ -1,0 +1,53 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "main": "cloudflare-worker.ts",
+  "name": "agritech-plant-health-app",
+  "compatibility_date": "2026-11-01",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "agritech-plant-health-app"
+    }
+  ],
+  "ratelimits": [
+    {
+      "namespace_id": "62670201",
+      "simple": {
+        "period": 60,
+        "limit": 10
+      },
+      "name": "LOGIN_RATE_LIMIT"
+    },
+    {
+      "namespace_id": "62670202",
+      "simple": {
+        "period": 60,
+        "limit": 3
+      },
+      "name": "REGISTER_RATE_LIMIT"
+    },
+    {
+      "namespace_id": "62670203",
+      "simple": {
+        "period": 60,
+        "limit": 3
+      },
+      "name": "RECOVERY_RATE_LIMIT"
+    },
+    {
+      "namespace_id": "62670204",
+      "simple": {
+        "period": 60,
+        "limit": 12
+      },
+      "name": "IMAGE_UPLOAD_RATE_LIMIT"
+    }
+  ]
+}

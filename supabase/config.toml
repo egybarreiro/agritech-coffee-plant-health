@@ -1,0 +1,16 @@
+[project]
+name = "plant-health-app"
+region = "local"
+
+[auth]
+enable_signup = true
+email_confirmations = true
+smtp_admin_email = "admin@planthealth.local"
+site_url = "http://localhost:3000"
+additional_redirect_urls = [
+  "http://localhost:3000/auth/callback",
+  "http://localhost:3000/dashboard",
+]
+
+[storage]
+enable_multi_mb_upload = true
